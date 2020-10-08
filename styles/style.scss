@@ -1,0 +1,382 @@
+$negro-general: #060A24; 
+$padding: 6%;
+
+@mixin column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@mixin row {
+    display: flex;
+    flex-direction: row;
+    
+}
+@mixin rowcenter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    @include row;
+    justify-content: space-evenly; 
+    list-style: none;
+    a{
+        text-decoration: none;
+    }
+}
+
+h1{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 4em;
+    color: $negro-general;
+    padding-left: $padding;
+    padding-top: 100px;
+    span{
+        color: #0000EC;
+    }
+}
+h2{
+    font-family: 'IBM Plex Sans', sans-serif;  
+    font-weight: 300; 
+    font-size: 2.5em;
+    margin-left: $padding;
+}
+h3{
+    font-family: 'IBM Plex Sans', sans-serif;  
+}
+h6{
+    font-size: 1em;
+    font-family: 'IBM Plex Mono', monospace;
+}
+p{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1em;
+    color: $negro-general;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-left: $padding+1%;
+    text-align: justify;
+    width: 55%;
+    
+
+}
+button{
+    background: #00F3BB;
+    padding: 16px 59px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1em;
+    color: $negro-general;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 24px;
+    border: none;
+    width: fit-content;
+    margin-left: $padding+1%;
+    &:hover{
+        background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+        color: #FFFFFF;
+        border: none;
+    }
+}
+.blanco{
+
+    color: #FFFFFF;
+}
+.espacio{
+    margin-bottom: 5vh;
+}
+section{
+    margin: 5vh 0;
+} 
+
+header{
+    @include row;
+    justify-content: space-between; 
+    padding: 0.6% 6.9%;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #FFFFFF;
+    width: 100%;
+    z-index: 5;
+    position: fixed;
+    .menu-btn{
+        display: none;
+    }
+    ul{
+        gap: 10%;
+        margin-right: 4%;
+        a{
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 16px;
+            color: $negro-general;
+            letter-spacing: 0;
+            line-height: 28px;
+            &:hover{
+                color: #00F3BB;
+                text-decoration: line-through;
+            }
+            &:active{
+                color: rgba(6,10,36,0.56);
+            }
+        }
+    }
+   
+}
+
+
+#episodios{
+    background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    transform: skew(0, -5deg);
+    .anti-skew{
+        transform: skew(0, 5deg);
+        padding-top: 100px;
+        padding-bottom: 100px;
+        div{
+            width: 98%;
+            height: 18%;    
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-content: space-between;
+            padding-left: 2vw;
+            padding-right: 2vw;
+            iframe{
+                width: 570px;
+                height: 232px;
+                margin-bottom: 5vh;
+            }
+        }
+    }
+    
+}
+
+#nosotros{
+    @include rowcenter; 
+    margin-top: -80px;
+    position: relative;
+    div{
+        width: 50%;
+    }
+    img{
+        width: 31.8%;
+        height: 16.9%;
+        margin-left: 14%;
+    }
+}
+
+#entrevistas{
+    
+    width: 100%;
+
+    div{
+        @include rowcenter;/*  prestar atencion */
+        img{
+            max-width: 33.3%;
+        }
+    }
+}
+#topicos{
+    li{
+        width: 15.3%;
+        @include column;
+        text-align: center; 
+    }
+}
+#end{
+    background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    @include column;
+    text-align: center;
+    transform: skew(0, -4deg);
+    margin-bottom: -50px;
+    margin-top: 100px;
+    
+    .anti-skew{
+        transform: skew(0, 4deg);
+        padding-top: 120px;
+        padding-bottom: 120px;
+        width: 100%;
+    }
+}
+footer{
+    @include row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0.6% 6.9%;
+    margin-top: -70px;
+    background-color: #FFFFFF;
+    position: relative;
+    width: 100%;
+    height: 120px;
+    ul{
+        gap: 20%;
+        i{
+            color: $negro-general;
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    h1{
+        font-size: 3em;
+        padding-top: 50px;
+    }
+    p{
+        width: 85%;
+        span{
+            display: none;
+        }
+
+
+    }
+    header{
+        display: block;
+        padding-left: 0;
+        padding-right: 0;
+        img{
+            margin: 7px 0 0 7px;
+        }
+
+        .menu{
+            clear: both;
+            width: 100%;
+            max-height: 0;
+            transition: max-height .2s ease-out;
+            display: none;
+            background-color: blue;
+            padding-bottom: $padding;
+            li{
+                padding-top: $padding;
+
+                a{
+                    color: #FFFFFF;
+                    margin-left: $padding;
+                }    
+            }
+            
+        }
+        .menu-btn:checked{
+            & ~ .menu{
+            max-height: 240px;
+            display: block;
+            }
+            & ~ .menu-icon{
+                .nav-icon{
+                    background: transparent;
+                    &:before{
+                        transform: rotate(-45deg);
+                        top: 0;
+                    }
+                    &:after{
+                        transform: rotate(45deg);
+                        top: 0;
+                    }
+                }
+            }
+        }
+        .menu-icon{
+            position: relative;
+            padding: 17px 17px;
+            float: right;
+            cursor: pointer;
+            .nav-icon{
+                background: black;
+                display: block;
+                height: 2px;
+                width: 20px;
+                position: relative;
+                transition: background .3s ease-out;
+                &:before{
+                    background: black;
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 5px;
+                    transition: all .3s ease-out;
+                }
+                &:after{
+                    background: black;
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    transition: all .3s ease-out;
+                    top: -5px;
+
+                }
+            }
+        }
+
+    } 
+          
+
+    #entrevistas{
+        justify-content: center;
+        div{
+            width: 100%;
+            @include column;
+            img{
+                max-width: 100%;
+            }
+        }
+    }
+    #nosotros{
+        width: 100%;
+        div{
+            width: 100%;
+            
+        }
+        img{
+            width: 100%;
+            margin-left: 0;
+            height: auto;
+        }
+    }
+    #topicos{
+        ul{
+            @include column;
+            gap: 50px;
+            
+            li{
+                width: 70%;
+                @include column;
+                text-align: center;
+                gap: 15px;
+                h3{
+                    width: 75%;
+                }
+            }
+        }
+    }
+    #end{
+
+        h2, button{
+            margin-left: 0;
+        }
+        h2{
+            margin: 0 16px 50px;
+        }
+    }
+    footer{
+        display: block;
+        padding-top: $padding;
+        h6{
+            text-align: center;
+        }
+        ul{
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+    } 
+}
