@@ -116,7 +116,9 @@ header {
       #episodios .anti-skew div iframe {
         width: 570px;
         height: 232px;
-        margin-bottom: 5vh; }
+        margin-bottom: 5vh;
+        border: 0;
+        background-color: transparent; }
 
 #nosotros {
   display: flex;
